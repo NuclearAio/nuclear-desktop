@@ -36,7 +36,9 @@ const indexHtml = join(process.env.DIST, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
-    title: 'Main window',
+    title: 'Nuclear',
+    width: 1000,
+    titleBarStyle: 'hidden',
     icon: join(process.env.PUBLIC, 'favicon.svg'),
     webPreferences: {
       preload,
@@ -44,6 +46,8 @@ async function createWindow() {
       contextIsolation: false,
     },
   })
+
+  win.webContents.openDevTools()
 
   if (app.isPackaged) {
     win.loadFile(indexHtml)
