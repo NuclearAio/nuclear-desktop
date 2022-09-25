@@ -43,8 +43,9 @@ const Proxies = () => {
                 <th className="p-3 font-bold">TITLE</th>
                 <th className="p-3 font-bold">IP ADDRESS</th>
                 <th className="p-3 font-bold">PORT</th>
-                <th className="p-3 font-bold ">PASS</th>
-                <th className="p-3 font-bold text-center">ACTION</th>
+                <th className="p-3 font-bold">PASS</th>
+                <th className="p-3 font-bold ">COST</th>
+                <th className="p-3 font-bold px-6">ACTION</th>
               </tr>
             </thead>
             <tbody>
@@ -53,16 +54,19 @@ const Proxies = () => {
                   <p>1</p>
                 </td>
                 <td className="p-3">
-                  <p>Add on nike</p>
+                  <p>uses in nike</p>
                 </td>
                 <td className="p-3">
-                  <p className="">Aditya Pushkar</p>
+                  <p className="">123.45.452.56</p>
                 </td>
                 <td className="p-3">
-                  <p className="">aditya@gmail.com</p>
+                  <p className="">8000</p>
                 </td>
                 <td className="p-3">
-                  <p>1234567890</p>
+                  <p>aditya@13:500</p>
+                </td>
+                <td className="p-3">
+                  <p>$ 25</p>
                 </td>
                 <td className="p-3 text-right flex gap-2">
                   <span className="px-3 p-1 font-semibold rounded-md bg-secondary-100 hover transition delay-100 ease-in">
