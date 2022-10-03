@@ -1,48 +1,53 @@
-import React, { useState, useContext } from 'react';
-import TitleContext from '../context/page-title/TitleContext';
-import {NavLink} from  "react-router-dom";
-import Logo from '../assets/icons/desktop-icon.png'
+import React, { useState, useContext } from "react";
+import TitleContext from "../context/page-title/TitleContext";
+import { NavLink } from "react-router-dom";
+import Logo from "../assets/icons/desktop-icon.png";
 
 const WindowContainer = ({ children }) => {
-  const {title} = useContext(TitleContext)
-  
+  const { title } = useContext(TitleContext);
+
   const menuItems = [
     {
-        title: "Dashboard",
-        path: "dashboard",
-        iconClass: "ri-dashboard-line"
+      title: "Dashboard",
+      path: "dashboard",
+      iconClass: "ri-dashboard-line",
     },
     {
-        title: "Reports",
-        path: "reports",
-        iconClass: "ri-folder-3-line"
+      title: "Reports",
+      path: "reports",
+      iconClass: "ri-folder-3-line",
     },
     {
       title: "Inventory",
       path: "inventory",
-      iconClass: "ri-organization-chart"
-  },
-    {
-        title: "Profiles",
-        path: "profiles",
-        iconClass: "ri-profile-line"
+      iconClass: "ri-organization-chart",
     },
     {
-        title: "Proxies",
-        path: "proxies",
-        iconClass: "ri-route-fill"
+      title: "Bot",
+      path: "bot",
+      iconClass: "ri-robot-line",
     },
     {
-        title: "Cards",
-        path: "cards",
-        iconClass: "ri-bank-card-2-line"
+      title: "Proxies",
+      path: "proxies",
+      iconClass: "ri-route-fill",
     },
     {
-        title: "Settings",
-        path: "settings",
-        iconClass: "ri-list-settings-line"
-    }
-  ]
+      title: "Profiles",
+      path: "profiles",
+      iconClass: "ri-profile-line",
+    },
+    {
+      title: "Cards",
+      path: "cards",
+      iconClass: "ri-bank-card-2-line",
+    },
+    {
+      title: "Settings",
+      path: "settings",
+      iconClass: "ri-list-settings-line",
+    },
+  ];
   return (
     <>
       <div className="bg-base h-screen relative">
@@ -56,18 +61,17 @@ const WindowContainer = ({ children }) => {
             </div>
 
             <ul className="space-y-2 tracking-wide mt-8">
-            {menuItems.map((menu, key)=>(
-                    <li key={key}>
-                <NavLink
-                  to={`${menu.path}`}
-        
-                  className={`relative px-4 py-3 mb-2 flex items-center space-x-4 rounded-xl  delay-100 transition ease-in hover:text-green-600 focus:text-white`}
-                >
-                  <i className={`${menu.iconClass} ri-lg `}></i>
-                  <span className="-mr-1 ">{menu.title}</span>
-                </NavLink>
-            </li>
-                ))}
+              {menuItems.map((menu, key) => (
+                <li key={key}>
+                  <NavLink
+                    to={`${menu.path}`}
+                    className={`relative px-4 py-3 mb-2 flex items-center space-x-4 rounded-xl  delay-100 transition ease-in hover:text-green-600 active:text-white focus:text-white`}
+                  >
+                    <i className={`${menu.iconClass} ri-lg `}></i>
+                    <span className="-mr-1 ">{menu.title}</span>
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -94,7 +98,10 @@ const WindowContainer = ({ children }) => {
         <div className=" ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
           <div className="sticky z-50 top-0 h-16 bg-base lg:py-2.5">
             <div className="px-6 flex items-center justify-between space-x-4 2xl:container">
-              <h5 hidden className="text-5xl font-bold  lg:block tracking-tighter">
+              <h5
+                hidden
+                className="text-5xl font-bold  lg:block tracking-tighter"
+              >
                 {title}
               </h5>
               <button className="w-12 h-16 -mr-2 border-r lg:hidden">
@@ -105,7 +112,12 @@ const WindowContainer = ({ children }) => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               </button>
               <div className="flex space-x-4 bg-base">

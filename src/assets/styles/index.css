@@ -22,3 +22,8 @@ code {
 .active:hover{
   color: white;
 }
+
+.draggable {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}

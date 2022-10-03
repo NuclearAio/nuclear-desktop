@@ -46,7 +46,7 @@ const Cards = () => {
                 <th className="p-3 font-bold">CARD NUMBER</th>
                 <th className="p-3 font-bold ">MM</th>
                 <th className="p-3 font-bold ">YY</th>
-                <th className="p-3 font-bold">ACTION</th>
+                <th className="p-3 font-bold px-6">ACTION</th>
               </tr>
             </thead>
             <tbody>
@@ -69,11 +69,11 @@ const Cards = () => {
                 <td className="p-3">
                   <p>3003</p>
                 </td>
-                <td className="p-3 text-right flex gap-2">
+                <td className="p-3 text-center flex gap-2">
                   <span className="px-3 p-1 font-semibold rounded-md bg-secondary-100 hover transition delay-100 ease-in">
-                  <i class="ri-book-open-line "></i>
+                  <i class="ri-book-open-line"></i>
                   </span>
-                  <span className="px-3 py-1 font-semibold rounded-md bg-red-600 hover:bg-red-700 transition delay-100 hover:shadow-2xl ease-in">
+                  <span className="px-3 py-1 font-semibold rounded-md bg-red-600 hover:bg-red-700 transition delay-100 ease-in">
                   <i class="ri-delete-bin-7-line text-white"></i>
                   </span>
                 </td>

@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
 import Inventory from "./pages/Inventory"
 import Profiles from "./pages/Profiles";
+import Bot from "./pages/Bot";
 import Proxies from "./pages/Proxies";
 import Cards from "./pages/Cards";
 import Settings from "./pages/Settings";
@@ -15,7 +16,7 @@ import Settings from "./pages/Settings";
 
 const App: React.FC = () => {
   return (
-    <div className='text-text-color'>
+    <div className='text-text-color draggable '>
       <TitleProvider>
       <WindowContainer>
         <Routes>
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path='reports' element={<Reports/>}/>
           <Route path='inventory' element={<Inventory/>}/>
           <Route path='profiles' element={<Profiles/>}/>
+          <Route path='bot' element={<Bot/>}/>
           <Route path='proxies' element={<Proxies/>}/>
           <Route path='cards' element={<Cards/>}/>
           <Route path='reports' element={<Reports/>}/>
