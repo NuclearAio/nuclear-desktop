@@ -4,10 +4,12 @@ import TitleContext from "../context/page-title/TitleContext";
 
 import InventoryData from '../components/inventory/InventoryData';
 import AddInventory from '../components/inventory/AddInventory';
+import UpdateInventory from '../components/inventory/UpdateInventory';
 
 const Inventory = () => {
   const { setTitle } = useContext(TitleContext);
   const [showInventoryModal, setInventoryModal] = useState(false)
+  const [showUpdateInventoryModal, setShowUpdateInventory] = useState(false)
 
   useEffect(() => {
     setTitle("Inventory");
@@ -17,13 +19,18 @@ const Inventory = () => {
     return showInventoryModal ? setInventoryModal(false) : setInventoryModal(true)
   }
 
+  const handleUpdateInventoryModal = () => {
+    return showUpdateInventoryModal ? setShowUpdateInventory(false) : setShowUpdateInventory(true)
+  }
+
   return (
     <div>
       <InventoryData/>
       {showInventoryModal ? <AddInventory handleModalFunction={handleInventoryModal}/> : null}
+      {showUpdateInventoryModal ? <UpdateInventory handleModalFunction={handleUpdateInventoryModal}/> : null}
       <div className="max-w-screen flex gap-7 ">
         {/* Proxy Performance Section */}
-        <section className=" w-80 mt-[3.3rem] h-[21.3rem] bg-primary">
+        <section className=" w-96 mt-[3.3rem] h-[21.3rem] bg-primary">
           <table className="min-w-full border-b-2 border-hidden">
             <colgroup>
               <col />
@@ -37,79 +44,102 @@ const Inventory = () => {
               <tr className="text-left ">
                 <th className="p-3 font-bold">S NO.</th>
                 <th className="p-3 font-bold">Name</th>
-                <th className="p-3 font-bold">SUCCES RATE %</th>
+                <th className="p-3 font-bold">SIZE</th>
+                <th className="p-3 font-bold ">BUYING PRICE</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12">
+              <tr 
+              onClick={handleUpdateInventoryModal}
+              className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12 hover:bg-hover delay-100 ease-in cursor-pointer ">
                 <td className="p-3">
                   <p>1</p>
                 </td>
                 <td className="p-3">
-                  <p className="">Wrath Bot</p>
+                  <p className="">Adidas nilke duty</p>
                 </td>
                 <td className="p-3">
-                  <p className="text-center">42</p>
+                  <p className="">240</p>
+                </td>
+                <td className="p-3">
+                  <p className="pl-6">4200</p>
                 </td>
               </tr>
 
-              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12">
+              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12 hover:bg-hover delay-100 ease-in cursor-pointer ">
                 <td className="p-3">
                   <p>1</p>
                 </td>
                 <td className="p-3">
-                  <p className="">Wrath Bot</p>
+                  <p className="">Adidas nilke duty</p>
                 </td>
                 <td className="p-3">
-                  <p className="text-center">42</p>
+                  <p className="">240</p>
+                </td>
+                <td className="p-3">
+                  <p className="pl-6">4200</p>
                 </td>
               </tr>
 
-              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12">
+              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12 hover:bg-hover delay-100 ease-in cursor-pointer ">
                 <td className="p-3">
                   <p>1</p>
                 </td>
                 <td className="p-3">
-                  <p className="">Wrath Bot</p>
+                  <p className="">Adidas nilke duty</p>
                 </td>
                 <td className="p-3">
-                  <p className="text-center">42</p>
+                  <p className="">240</p>
+                </td>
+                <td className="p-3">
+                  <p className="pl-6">4200</p>
                 </td>
               </tr>
 
-              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12">
+              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12 hover:bg-hover delay-100 ease-in cursor-pointer ">
                 <td className="p-3">
                   <p>1</p>
                 </td>
                 <td className="p-3">
-                  <p className="">Wrath Bot</p>
+                  <p className="">Adidas nilke duty</p>
                 </td>
                 <td className="p-3">
-                  <p className="text-center">42</p>
+                  <p className="">240</p>
+                </td>
+                <td className="p-3">
+                  <p className="pl-6">4200</p>
                 </td>
               </tr>
-              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12">
+
+              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12 hover:bg-hover delay-100 ease-in cursor-pointer ">
                 <td className="p-3">
                   <p>1</p>
                 </td>
                 <td className="p-3">
-                  <p className="">Wrath Bot</p>
+                  <p className="">Adidas nilke duty</p>
                 </td>
                 <td className="p-3">
-                  <p className="text-center">42</p>
+                  <p className="">240</p>
+                </td>
+                <td className="p-3">
+                  <p className="pl-6">4200</p>
                 </td>
               </tr>
-              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12">
+              <tr className="border-b border-opacity-50 text-xs border-gray-700 bg-primary h-12 hover:bg-hover delay-100 ease-in cursor-pointer ">
                 <td className="p-3">
                   <p>1</p>
                 </td>
                 <td className="p-3">
-                  <p className="">Wrath Bot</p>
+                  <p className="">Adidas nilke duty</p>
                 </td>
                 <td className="p-3">
-                  <p className="text-center">42</p>
+                  <p className="">240</p>
+                </td>
+                <td className="p-3">
+                  <p className="pl-6">4200</p>
                 </td>
               </tr>
+              
               
             </tbody>
           </table>
@@ -183,13 +213,13 @@ const Inventory = () => {
                 <thead className="bg-secondary-100 text-xs ">
                   <tr className="text-left ">
                     <th className="p-3 font-bold">S NO.</th>
-                    <th className="p-3 font-bold">TITLE</th>
-                    <th className="p-3 font-bold">IP ADDRESS</th>
-                    <th className="p-3 font-bold">PORT</th>
-                    <th className="p-3 font-bold">USERNAME</th>
-                    <th className="p-3 font-bold ">VENDOR</th>
-                    <th className="p-3 font-bold ">COST</th>
-                    <th className="p-3 font-bold px-6">ACTION</th>
+                    <th className="p-3 font-bold">NAME</th>
+                    <th className="p-3 font-bold">SIZE</th>
+                    <th className="p-3 font-bold">BUY'S</th>
+                    <th className="p-3 font-bold">SELL'S</th>
+                    <th className="p-3 font-bold">DELEVIRY'S</th>
+                    <th className="p-3 font-bold ">MARGIN</th>
+                    <th className="p-3 font-bold ">MARGIN %</th>
                     {/* PUT PASS IN  DETAIL MODAL*/}
                   </tr>
                 </thead>
