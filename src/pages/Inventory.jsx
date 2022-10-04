@@ -28,6 +28,11 @@ const Inventory = () => {
       <InventoryData/>
       {showInventoryModal ? <AddInventory handleModalFunction={handleInventoryModal}/> : null}
       {showUpdateInventoryModal ? <UpdateInventory handleModalFunction={handleUpdateInventoryModal}/> : null}
+      
+      <div className='flex gap-72 tracking-tighter font-semibold text-3xl ml-1 mt-10 -mb-10 '>
+        <h1>Unsold</h1>
+        <h1>Sold</h1>
+      </div>
       <div className="max-w-screen flex gap-7 ">
         {/* Proxy Performance Section */}
         <section className=" w-96 mt-[3.3rem] h-[21.3rem] bg-primary">
