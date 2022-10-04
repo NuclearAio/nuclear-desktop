@@ -19,7 +19,7 @@ const AddInventory = ({ handleModalFunction }) => {
         id="authentication-modal"
         tabindex="-1"
         aria-hidden="true"
-        className="overflow-y-auto overflow-x-hidden  fixed  z-50 pl-[36rem]  w-full md:inset-0 md:h-full justify-center items-center"
+        className="overflow-y-auto overflow-x-hidden  fixed  z-50 pl-[36rem] mt-36  w-full md:inset-0 md:h-full justify-center items-center"
       >
         <div className="relative p-10 w-fit max-w-md h-full md:h-auto bg-secondary-100 mt-40">
           <div className=" bg-secondary-100 shadow-lg">
@@ -67,6 +67,7 @@ const AddInventory = ({ handleModalFunction }) => {
                 <input
                   type="text"
                   name="product_name"
+                  maxLength="17"
                   className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-700 appearance-none  dark:focus:border-gray-400 focus:outline-none focus:ring-0  peer"
                   placeholder=" "
                   required="true"
@@ -180,14 +181,33 @@ const AddInventory = ({ handleModalFunction }) => {
               
             </div>
 
+            <div className="grid md:grid-cols-2 md:gap-6">
+              <div className="relative z-0 mb-6 w-full group">
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  pattern="^\d*(\.\d{0,2})?$"
+                  name="buying_price"
+                  className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-700 appearance-none  dark:focus:border-gray-400 focus:outline-none focus:ring-0  peer"
+                  placeholder=" "
+                  required="true"
+                />
+                <label className="peer-focus:font-medium absolute text-sm  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    Delivery Rate
+                </label>
+              </div>
 
-            <select className="block py-2.5 px-0 mb-7 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-400 peer">
+              <select className="block py-2.5 px-0 mb-7 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-400 peer">
                 <option selected>Choose Selling Medium </option>
                 <option value="US">Offline</option>
                 <option value="CA">Ebay</option>
                 <option value="FR">StockX </option>
                 <option value="DE">Private reselling group</option>
             </select>
+              
+            </div>
+
                 </>
             ) : null}
             
