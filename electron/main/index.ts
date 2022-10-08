@@ -9,6 +9,9 @@
 // │ ├── index.html
 // │ ├── ...other-static-files-from-public
 // │
+import fetch from 'electron-fetch'
+import URL from '../../url.js'
+
 process.env.DIST = join(__dirname, '../..')
 process.env.PUBLIC = app.isPackaged ? process.env.DIST : join(process.env.DIST, '../public')
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
@@ -42,8 +45,8 @@ async function createWindow() {
     icon: join(process.env.PUBLIC, 'favicon.svg'),
     webPreferences: {
       preload,
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
     },
   })
 
@@ -107,3 +110,54 @@ ipcMain.handle('open-win', (event, arg) => {
     // childWindow.webContents.openDevTools({ mode: "undocked", activate: true })
   }
 })
+
+//Auth Functions 
+ipcMain.handle("get-auth-tokens", async(event, username, password) =>{
+  const response = await fetch(`${URL}/account/api/token/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify({'username':username, 'password':password})
+  })
+  const data = await response.json()
+  if(response.status===200){
+    return data;
+    // console.log("DATA >>>>>>", data)
+  }
+  return false;
+})
+
+ipcMain.handle('update-auth-tokens',async(event, refreshToken, bearerToken)=>{
+  const bearer = 'Bearer ' + bearerToken;
+  const response = await fetch(`${URL}/account/api/token/refresh/`, {
+    method: 'POST',
+    headers: { 'Authorization': bearer, "Content-Type": "application/json; charset=UTF-8" },
+    body:JSON.stringify({'refresh': refreshToken})
+  })
+  const data = await response.json()
+  if(response.status===200){
+    return data;
+  }
+  return false;
+})
+
+// Dashboard
+ipcMain.handle('get-global-bot-data', async(event, currentUrl, bearerToken)=>{
+  const bearer = 'Bearer ' + bearerToken;
+  const response = await fetch(currentUrl, {
+    method: 'GET',
+    headers: {
+      'Authorization': bearer,
+      'Content-Type': 'application/json'
+    }
+  })
+  const data = await response.json()
+  if(response.status===200){
+    return data
+  }
+  return false;
+})
+
+
+// I want to be fully transparent I will charge 35% advance than 35%  after the first draft and the rest of the money on
