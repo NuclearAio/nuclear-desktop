@@ -35,22 +35,22 @@ const options = {
   },
 };
 
-const labels = ['Wrath', 'What', 'Trickle', 'Prism', 'Cyber', 'Chegg', 'Valor'];
-
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Global Bot Performance',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
-      backgroundColor: '#0f172a',
-      color: "#fafafa",
-    },
-    
-  ],
-};
 
 const BotGraph = () => {
+  const labels = ['Wrath', 'What', 'Trickle', 'Prism', 'Cyber', 'Chegg'];
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Global Bot Performance (Top 6) ',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+        backgroundColor: 'black',
+        color: "#fafafa",
+      },
+      
+    ],
+  };
   return (
     <Bar options={options} data={data} />
   )

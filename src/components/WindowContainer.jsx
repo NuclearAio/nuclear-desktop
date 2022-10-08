@@ -47,6 +47,11 @@ const WindowContainer = ({ children }) => {
       path: "settings",
       iconClass: "ri-list-settings-line",
     },
+    {
+      title: "Login",
+      path: "login",
+      iconClass: "ri-list-settings-line",
+    },
   ];
   return (
     <>
@@ -65,7 +70,7 @@ const WindowContainer = ({ children }) => {
                 <li key={key}>
                   <NavLink
                     to={`${menu.path}`}
-                    className={`relative px-4 py-3 mb-2 flex items-center space-x-4 rounded-xl  delay-100 transition ease-in hover:text-gray-100`}
+                    className={`relative px-4 py-3 mb-2 flex items-center space-x-4 rounded-xl  delay-100 transition ease-in hover:text-gray-100 `}
                   >
                     <i className={`${menu.iconClass} ri-lg `}></i>
                     <span className="-mr-1 ">{menu.title}</span>

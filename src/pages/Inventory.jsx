@@ -34,7 +34,7 @@ const Inventory = () => {
         <h1>Sold</h1>
       </div>
       <div className="max-w-screen flex gap-7 ">
-        {/* Proxy Performance Section */}
+        {/* Unsold Shoes*/}
         <section className=" w-96 mt-[3.3rem] h-[21.3rem] bg-primary">
           <table className="min-w-full border-b-2 border-hidden">
             <colgroup>
@@ -190,7 +190,7 @@ const Inventory = () => {
         
 
 
-        {/* Proxies Table  */}
+        {/* Sold Shoes */}
         <section style={{ width: "52rem" }} className=" w-full -mx-3">
           <aside>
             <div className="flex  justify-end mr-9 gap-3 ">
