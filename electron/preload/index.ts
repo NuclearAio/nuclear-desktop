@@ -1,3 +1,5 @@
+const {contextBridge, ipcRenderer} = require('electron');
+
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
   return new Promise(resolve => {
     if (condition.includes(document.readyState)) {
@@ -88,5 +90,18 @@ domReady().then(appendLoading)
 window.onmessage = ev => {
   ev.data.payload === 'removeLoading' && removeLoading()
 }
-
 setTimeout(removeLoading, 4999)
+
+
+
+const AUTH_API = {
+  getAuthTokens: (username:string, password:string) => ipcRenderer.invoke("get-auth-tokens", username, password),
+  updateTokens: (refreshToken:string, bearerToken:string) => ipcRenderer.invoke("update-auth-tokens", refreshToken, bearerToken)
+}
+
+const DASHBOARD_API = {
+  globalBotData: (currentUrl:string, bearerToken:string) => ipcRenderer.invoke("get-global-bot-data", currentUrl, bearerToken)
+}
+
+contextBridge.exposeInMainWorld("authApi", AUTH_API)
+contextBridge.exposeInMainWorld("dashboardApi", DASHBOARD_API)
