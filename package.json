@@ -40,6 +40,8 @@
   },
   "dependencies": {
     "chart.js": "^3.9.1",
+    "electron-fetch": "^1.9.1",
+    "jwt-decode": "^3.1.2",
     "react-chartjs-2": "^4.3.1",
     "react-router-dom": "^6.4.1"
   }
